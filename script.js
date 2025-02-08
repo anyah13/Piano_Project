@@ -5,17 +5,19 @@ keys.forEach((key) => {
 });
 
 function playNote(key) {
-    const noteAudio = document.getElementById(key.dataset.note);
-    noteAudio.currentTime = 0;
-    noteAudio.play();
-    key.classList.add('active');  👈
-  }
+  const noteAudio = document.getElementById(key.dataset.note);
+  noteAudio.currentTime = 0;
+  noteAudio.play();
+  key.classList.add('active')
 
-  noteAudio.addEventListener('ended', () => {
+
+noteAudio.addEventListener('ended', () => {
     key.classList.remove('active');
   });
+}
 
-  const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
+  // for keyboard function
+const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j'];
 
 const whiteKeys = document.querySelectorAll('.key.white');
@@ -36,7 +38,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// If the key is being held down, don't play the note again
-if (e.repeat) {
+ // If the key is being held down, don't play the note again
+ if (e.repeat) {
     return;
   }
